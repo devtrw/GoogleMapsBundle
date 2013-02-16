@@ -1,4 +1,6 @@
 Table of Contents
-                 =================
-[Development](https://github.com/devtrw/GoogleMapsBundle/Resources/doc/development.md)
-[Installation](https://github.com/devtrw/GoogleMapsBundle/Resources/doc/installation.md)
+=================
+
+[Development](https://github.com/devtrw/GoogleMapsBundle/blob/master/Resources/doc/development.md)
+
+[Installation](https://github.com/devtrw/GoogleMapsBundle/blob/master/Resources/doc/installation.md)
