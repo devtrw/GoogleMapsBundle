@@ -1,7 +1,7 @@
 class { "lamp":
     developmentEnvironment => true,
-    serverName => 'googlemapsbundle.com',
-    phpModules => ["curl", "intl", "phing"]
+    serverName             => 'googlemapsbundle.com',
+    phpModules             => ["curl", "intl", "phing"]
 }
 
 file { [
@@ -19,4 +19,7 @@ file { [
     serverName       => "reports.googlemapsbundle.com",
     symfony2App      => true,
     symfony2Secret   => "not-acutally-needed"
+}
+-> class { "composer":
+    installLocation => '/home/vagrant/GoogleMapsBundle'
 }
