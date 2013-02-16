@@ -8,4 +8,4 @@ Provides services for interfacing with the Google Mmaps API.
 Documentation
 -------------
 
-Documentation can be found at [Resources/doc/index.md](https://github.com/devtrw/GoogleMapsBundle/Resources/doc/index.md).
+Documentation can be found at [Resources/doc/index.md](https://github.com/devtrw/GoogleMapsBundle/blob/master/Resources/doc/index.md)
