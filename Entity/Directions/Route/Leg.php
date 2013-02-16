@@ -16,7 +16,7 @@ use Devtrw\Bundle\GoogleMapsBundle\Entity\Directions\Route\Leg\Step;
  *
  * @author Steven Nance <steven@devtrw.com>
  *
- * @url https://developers.google.com/maps/documentation/directions/#DirectionsResponses
+ * @link https://developers.google.com/maps/documentation/directions/#DirectionsResponses
  */
 class Leg
 {

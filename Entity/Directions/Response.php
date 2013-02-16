@@ -18,7 +18,7 @@ use InvalidArgumentException;
  *
  * @author Steven Nance <steven@devtrw.com>
  *
- * @url https://developers.google.com/maps/documentation/directions/#DirectionsResponses
+ * @link https://developers.google.com/maps/documentation/directions/#DirectionsResponses
  */
 class Response
 {

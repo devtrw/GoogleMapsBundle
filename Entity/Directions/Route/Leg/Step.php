@@ -15,7 +15,7 @@ namespace Devtrw\Bundle\GoogleMapsBundle\Entity\Directions\Route\Leg;;
  *
  * @author Steven Nance <steven@devtrw.com>
  *
- * @url https://developers.google.com/maps/documentation/directions/#DirectionsResponses
+ * @link https://developers.google.com/maps/documentation/directions/#DirectionsResponses
  */
 class Step
 {

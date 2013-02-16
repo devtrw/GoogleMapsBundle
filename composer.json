@@ -1,7 +1,7 @@
 {
     "name"       : "devtrw/google-maps-bundle",
     "description": "Provides services to interface with the Google Maps API",
-    "version"    : "0.0.1",
+    "version"    : "0.0.2",
     "type"       : "symfony-bundle",
     "keywords"   : ["google", "maps", "directions", "api"],
     "homepage"   : "https://bitbucket.org/devtrw/googlemapsbundle",
