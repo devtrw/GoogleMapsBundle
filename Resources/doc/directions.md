@@ -21,7 +21,7 @@ $request = new Request($origin, $destination);
 
 $request->setHasSensor();
 $request->setMode(Request::MODE_WALKING);
-$request->setWaypoints(["A waypoint for the trip]);
+$request->setWaypoints(["A waypoint for the trip"]);
 $request->optimizeWaypoints();
 
 //...
@@ -29,6 +29,9 @@ $directionsService = $container->get('devtrw_google_maps.directions');
 $response          = $directionsService->getDirections($request);
 
 if ($response->getStatus == 'OK') {
+    
+    $totalDistance = $response->getTotalDistanceInMiles();
+    
     /**
      * @var Route[] $routes
      */
