@@ -1,5 +1,5 @@
 Table of Contents
-=================
+-----------------
 
 [Development](https://github.com/devtrw/GoogleMapsBundle/blob/master/Resources/doc/development.md)
 
