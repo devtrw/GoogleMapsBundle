@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="TowReturns" default="help">
+
+    <fileset dir="../" id="test.directories">
+        <include name="**/*.php" />
+        <exclude name="vendor/**" />
+    </fileset>
+
+    <!-- ============================================  -->
+    <!-- (DEFAULT) Target: help                        -->
+    <!-- ============================================  -->
+    <target name="help">
+        <echo msg="Available phing commands" />
+        <echo msg="========================" />
+        <echo msg="test         - Runs all of the application's test suites" />
+        <echo msg="test.phpcs   - Checks the src/ directory against the Symfony2 coding standard" />
+        <echo msg="test.phpcpd  - Checks the src/ directory with php copy paste detector" />
+        <echo msg="test.phpmd   - Runs php mess detector on the src/ directory" />
+        <echo msg="test.phpunit - Runs the application's test suite and generates a report" />
+    </target>
+
+
+    <!-- ============================================  -->
+    <!-- Target: test.phpcs                            -->
+    <!-- ============================================  -->
+    <target name="test.phpcs">
+        <phpcodesniffer standard="Symfony2"
+                        showWarnings="true">
+            <fileset refid="test.directories" />
+            <formatter type="full"
+                       usefile="true"
+                       outfile="/tmp/reports/phpcs" />
+            <formatter type="summary" usefile="false" />
+        </phpcodesniffer>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: test.phpcpd                           -->
+    <!-- ============================================  -->
+    <target name="test.phpcpd">
+        <phpcpd>
+            <fileset refid="test.directories" />
+            <formatter type="default" useFile="false" />
+            <formatter type="default" outfile="/tmp/reports/phpcpd" />
+        </phpcpd>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: test.phpmd                            -->
+    <!-- ============================================  -->
+    <target name="test.phpmd">
+        <phpmd rulesets="codesize,unusedcode,design">
+            <fileset refid="test.directories" />
+            <formatter type="html"
+                       useFile="true"
+                       outfile="/tmp/reports/phpmd" />
+            <formatter type="text" useFile="false" />
+        </phpmd>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Task: autoload                                -->
+    <!--    Handles autoloading the app                -->
+    <!-- ============================================  -->
+    <adhoc-task name="autoload"><![CDATA[
+      class AutoloadTask extends Task {
+          function main() {
+              require_once("../Tests/bootstrap.php");
+          }
+      }
+    ]]></adhoc-task>
+
+    <!-- ============================================  -->
+    <!-- Target: test.phpunit                          -->
+    <!-- ============================================  -->
+    <target name="test.phpunit">
+        <mkdir dir="/tmp/reports/phpunit" />
+        <mkdir dir="/tmp/reports/coverage" />
+
+        <autoload/>
+
+        <coverage-setup database="/tmp/reports/coverage/coverage.db">
+            <fileset refid="test.directories" />
+        </coverage-setup>
+
+        <phpunit printsummary="true"
+                 codecoverage="true">
+            <formatter type="plain" usefile="false"/>
+            <formatter type="xml" usefile="true" todir="/tmp/reports/phpunit"/>
+            <batchtest>
+                <fileset refid="test.directories" />
+            </batchtest>
+        </phpunit>
+
+        <coverage-report outfile="/tmp/reports/coverage/coverage.db">
+            <report styleDir="/usr/share/php/data/phing/etc"
+                    toDir="/tmp/reports/coverage" />
+        </coverage-report>
+
+        <phpunitreport infile="/tmp/reports/phpunit/testsuites.xml"
+                       format="frames"
+                       todir="/tmp/reports/phpunit"
+                       usesorttable="true"/>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: test                                  -->
+    <!-- ============================================  -->
+    <target name="test">
+        <mkdir dir="/tmp/reports" />
+        <delete dir="../Tests/app/cache" />
+        <phingcall target="test.phpcs" />
+        <phingcall target="test.phpcpd" />
+        <phingcall target="test.phpmd" />
+        <phingcall target="test.phpunit" />
+        <echo msg="" />
+        <echo msg="Test reports can be viewed at reports.googlemapsbundle.com" />
+    </target>
+
+</project>

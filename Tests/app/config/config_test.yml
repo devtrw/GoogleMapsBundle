@@ -1,0 +1,3 @@
+ddeboer_guzzle:
+    service_builder:
+        configuration_file: "%devtrw_google_maps.guzzle.config%"

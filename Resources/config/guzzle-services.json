@@ -1,0 +1,7 @@
+{
+    "services": {
+        "google.maps": {
+            "class" : "Devtrw\\Bundle\\GoogleMapsBundle\\Client\\GoogleMapsClient"
+        }
+    }
+}

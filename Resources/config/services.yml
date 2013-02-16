@@ -1,0 +1,15 @@
+parameters:
+    devtrw_google_maps.service.directions.class : Devtrw\Bundle\GoogleMapsBundle\Service\Directions
+    devtrw_google_maps.google_maps_client.class : Devtrw\Bundle\GoogleMapsBundle\Client\GoogleMapsClient
+
+services:
+
+    devtrw_google_maps.google_maps_client:
+        class          : %devtrw_google_maps.google_maps_client.class%
+        factory_service: guzzle.service_builder
+        factory_method : get
+        arguments: [%devtrw_google_maps.google_maps_client.name%]
+
+    devtrw_google_maps.directions:
+        class: %devtrw_google_maps.service.directions.class%
+        arguments: [@devtrw_google_maps.google_maps_client]

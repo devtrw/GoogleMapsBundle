@@ -1,0 +1,9 @@
+.idea
+Build/.vagrant
+composer.lock
+composer.phar
+phpunit.xml
+phpunit.phar
+Tests\app\cache*
+Tests\app\logs
+vendor

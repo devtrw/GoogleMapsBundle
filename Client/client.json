@@ -1,0 +1,51 @@
+{
+    "description": "A client to interface with the google maps REST API.",
+    "operations" : {
+        "GetDirections": {
+            "httpMethod": "GET",
+            "uri"       : "/maps/api/directions/{format}",
+            "summary"   : "Fetches directions from the maps/directions api",
+            "parameters": {
+                "origin" :{
+                    "description": "See https://developers.google.com/maps/documentation/directions/",
+                    "type"    : "string",
+                    "location": "query",
+                    "required": true
+                },
+                "destination": {
+                    "description": "See https://developers.google.com/maps/documentation/directions/",
+                    "type"    : "string",
+                    "location": "query",
+                    "required": true
+                },
+                "sensor": {
+                    "description": "See https://developers.google.com/maps/documentation/directions/",
+                    "type"    : "string",
+                    "location": "query",
+                    "default" : "false",
+                    "enum"    : ["true","false"]
+                },
+                "mode": {
+                    "description": "See https://developers.google.com/maps/documentation/directions/",
+                    "type"       : "string",
+                    "location"   : "query",
+                    "default"    : "driving",
+                    "enum"       : ["bicycling","driving","transit","walking"]
+                },
+                "waypoints": {
+                    "description": "See https://developers.google.com/maps/documentation/directions/",
+                    "type"       : "string",
+                    "location"   : "query"
+                },
+                "format": {
+                    "description": "The format for the maps api to output.",
+                    "type"       : "string",
+                    "location"   : "uri",
+                    "required"   : true,
+                    "enum"       : ["json","xml"]
+                }
+            }
+        }
+    },
+    "models"     : {}
+}

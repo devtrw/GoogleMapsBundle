@@ -1,0 +1,31 @@
+{
+    "name"       : "devtrw/google-maps-bundle",
+    "description": "Provides services to interface with the Google Maps API",
+    "version"    : "0.0.1",
+    "type"       : "symfony-bundle",
+    "keywords"   : ["google", "maps", "directions", "api"],
+    "homepage"   : "https://bitbucket.org/devtrw/googlemapsbundle",
+    "authors"    : [
+        {
+            "name"     : "Steven Nance",
+            "email"    : "steven@devtrw.com",
+            "homepage" : "http://devtrw.com"
+        }
+    ],
+    "license"    : "MIT",
+    "require"    : {
+        "php":                            ">=5.4.0",
+        "symfony/symfony":                ">=2.0,<2.2",
+        "devtrw/guzzle-bundle": "1.0.4"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/devtrw/GuzzleBundle"
+        }
+    ],
+    "autoload"   : {
+        "psr-0": { "Devtrw\\Bundle\\GoogleMapsBundle": "" }
+    },
+    "target-dir" : "Devtrw/Bundle/GoogleMapsBundle"
+}
