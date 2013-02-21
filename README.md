@@ -1,4 +1,4 @@
-** This project has been abandoned after discovery of [another bundle](https://github.com/egeloen/IvoryGoogleMapBundle) that provides exactly what this would **
+**This project has been abandoned after discovery of [another bundle](https://github.com/egeloen/IvoryGoogleMapBundle) that provides exactly what this would**
 
 
 
